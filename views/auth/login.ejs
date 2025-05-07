@@ -1,0 +1,33 @@
+<% layout("./layouts/boilerplate.ejs") %>
+<div class="row justify-content-md-center">
+    <div class="col-8">
+        <h1 style="color: white;" class="mb-4">Login to Notes</h1>
+        <form action="/login" method="POST">
+            <div class="mb-3">
+                <label for="email" class="form-label"
+                    >Email address</label
+                >
+                <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="john@email.com"
+                    name="email"
+                />
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label"
+                    >Password</label
+                >
+                <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    placeholder="enter password"
+                    name="password"
+                />
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+    </div>
+</div>

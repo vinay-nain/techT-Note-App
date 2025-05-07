@@ -1,0 +1,197 @@
+body {
+    background-color: cornflowerblue;
+}
+
+/* navbar */
+.navbar {
+    background-color: white;
+    height: 55px;
+}
+
+/* note-card */
+.card {
+    margin: 10px;
+}
+
+.row {
+    justify-content: space-evenly;
+}
+
+/* card */
+.card-body,
+.card {
+    height: fit-content;
+}
+
+/* new note-input */
+.input {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.input-box {
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.input-box-shadow {
+    box-shadow: 0px 0px 10px rgb(255, 255, 255);
+    border-radius: 10px;
+    border: 1px solid transparent;
+}
+
+.new-note-title,
+.new-note-info {
+    border: none;
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: transparent;
+    padding: 0px 10px;
+    color: cornsilk;
+}
+
+.new-note-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.new-note-info {
+    width: 100%;
+    overflow: hidden;
+    resize: none;
+    min-height: 2.5em;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 0.5em;
+}
+
+input:focus,
+textarea:focus,
+input::placeholder,
+textarea::placeholder {
+    outline: none;
+    color: cornsilk;
+}
+
+/* note-card */
+.note-created-at {
+    color: rgb(150, 150, 150);
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    font-style: italic;
+}
+
+.line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title {
+    display: inline-block;
+}
+
+.trash-icon,
+.pin-icon {
+    font-size: 1.2rem;
+    color: rgb(56, 56, 56);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.trash-button,
+.pin-button {
+    border: none;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.trash-button:hover > .trash-icon,
+.pin-button:hover > .pin-icon {
+    opacity: 1;
+}
+
+/* note-buttons */
+.d-flex {
+    height: 40px;
+}
+
+.close-button {
+    border: none;
+    height: 30px;
+    padding: 0 15px;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+i,
+.close-button {
+    color: #ffffff;
+    font-size: 1.1rem;
+}
+
+.span {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    border-radius: 50%;
+    padding-top: 6px;
+}
+
+.span:hover {
+    background-color: rgb(152, 188, 254);
+}
+
+.close-button:hover,
+.note-buttons:hover {
+    background-color: rgb(162, 192, 249);
+    text-align: center;
+}
+
+.container-fluid {
+    background-color: white;
+}
+
+/* note */
+.row {
+    display: flex;
+    row-gap: 10px;
+}
+.note-link {
+    text-decoration: none;
+    background-color: white;
+    width: 19rem;
+    cursor: default;
+    background-color: transparent;
+}
+
+.card-note {
+    cursor: pointer;
+}
+
+/* show-note */
+.form-label {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.edit-btn {
+    border: none;
+    padding: 5px 30px;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    background-color: rgb(212, 53, 53);
+    color: white;
+}
+
+#reset-date-btn {
+    margin-top: 45px;
+}

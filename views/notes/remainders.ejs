@@ -1,0 +1,57 @@
+<% layout("./layouts/boilerplate.ejs") %> <% layout("./layouts/boilerplate.ejs")
+%> <%- include("../includes/form") %>
+<div class="d-flex justify-content-center mb-4" style="color: white">
+    <h3>Remainder</h3>
+</div>
+<div class="row row-cols-lg-3 row-cols-md-3">
+    <% for (note of notes) { %> <% if (note.remind) { %>
+    <a href="/notes/<%=note._id%>" class="note-link">
+        <div class="card col-sm-1" style="width: 18rem">
+            <div class="card-body" style="cursor: pointer">
+                <span
+                    class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"
+                >
+                </span>
+                <div class="line">
+                    <h5 class="card-title">
+                        <%=note.title === '' ? 'empty title' : note.title%>
+                    </h5>
+                    <form
+                        action="/notes/<%=note._id%>?_method=PATCH"
+                        method="POST"
+                    >
+                        <button class="pin-button" name="pinned">
+                            <i
+                                class="fa-solid fa-thumbtack pin-icon"
+                                style="color:<%= note.pinned ? '#8b8c8b' : '#2b2b2b'%>;"
+                            >
+                            </i>
+                        </button>
+                    </form>
+                </div>
+                <div class="line">
+                    <form
+                        action="/notes/<%=note._id%>?_method=DELETE"
+                        method="POST"
+                    >
+                        <button class="trash-button">
+                            <i class="fa-solid fa-trash trash-icon"></i>
+                        </button>
+                    </form>
+                    <p class="card-text">
+                        <span
+                            class="badge note-created-at d-flex flex-row-reverse p-2 ml-2"
+                        >
+                            <%=note.createdAt.toLocaleString('en-IN', { month:
+                            "numeric", day: "numeric", year: "numeric", hour:
+                            "numeric", minute: "2-digit", hour12: true})%></span
+                        >
+                    </p>
+                </div>
+                <!-- <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a> -->
+            </div>
+        </div>
+    </a>
+    <% } %> <% } %>
+</div>

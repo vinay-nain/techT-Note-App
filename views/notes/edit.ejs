@@ -1,0 +1,39 @@
+<% layout("./layouts/boilerplate") %>
+<form action="/notes/<%=note._id%>?_method=PUT" method="POST">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+            type="text"
+            id="title"
+            class="form-control"
+            value="<%=note.title%>"
+            name="newNote[title]"
+        />
+    </div>
+    <div class="mb-3">
+        <label for="note" class="form-label">Note</label>
+        <textarea name="newNote[note]" class="form-control" id="note" rows="5">
+<%=note.note%></textarea
+        >
+    </div>
+    <div class="row">
+        <div class="mb-3 col-9">
+            <label for="title" class="form-label">Remind On</label>
+            <input
+                type="datetime-local"
+                name="newNote[remind]"
+                class="form-control"
+                id="reset-date-input"
+                value="<%= note.localRemind %>"
+            />
+        </div>
+        <div class="col-3">
+            <a id="reset-date-btn" class="btn btn-outline-dark">
+                Reset Remainder
+            </a>
+        </div>
+    </div>
+    <div class="mb-3 d-flex justify-content-end mt-5">
+        <button class="edit-btn" type="submit">Edit</button>
+    </div>
+</form>

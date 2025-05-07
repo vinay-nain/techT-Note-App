@@ -1,0 +1,52 @@
+<section id="">
+    <form action="/notes" method="POST">
+        <div class="row mt-4 mb-4">
+            <div class="input col-8 input-box">
+                <input
+                    type="text"
+                    id="autoExpandTitle"
+                    class="mb-2 new-note-title"
+                    placeholder="Title"
+                    name="newNote[title]"
+                />
+                <textarea
+                    id="autoExpandNote"
+                    class="new-note-info"
+                    placeholder="Type a note..."
+                    rows="1"
+                    name="newNote[note]"
+                ></textarea>
+                    <input
+                        type="datetime-local"
+                        id="autoExpandTitle"
+                        class="new-note-info"
+                        placeholder="Title"
+                        name="newNote[remind]"
+                    />
+                <div
+                    class="d-flex justify-content-between align-items-center mt-2"
+                >
+                    <div
+                        class="d-flex col-6 justify-content-between m-3 align-items-center"
+                    >
+                        <span class="span">
+                            <i class="fa-solid fa-palette"></i>
+                        </span>
+                        <span class="span">
+                            <i class="fa-regular fa-bell"></i>
+                        </span>
+                        <span class="span">
+                            <i class="fa-solid fa-inbox"></i>
+                        </span>
+                        <span class="span">
+                            <i class="fa-solid fa-bars"></i>
+                        </span>
+                    </div>
+                    <div class="close me-3 ms-3">
+                        <button class="close-button" type="submit">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

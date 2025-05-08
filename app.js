@@ -8,7 +8,9 @@ dotevn.config();
 
 const ExpressError = require("./utils/expressError");
 const userRouter = require("./routes/user.js")
+const authRouter = require("./routes/auth.js");
 const { log } = require("console");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 
@@ -19,7 +21,7 @@ app.set("views", path.join(__dirname, "/views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(methodOverride("_method"));
-
+app.use(cookieParser())
 app.engine("ejs", ejsMate);
 
 const port = 8080;
@@ -37,6 +39,7 @@ main()
 // ---------routes----------
 
 app.use(userRouter)
+app.use(authRouter);
 
 // 404-notfound
 app.all(/.*/, (req, res, next) => {

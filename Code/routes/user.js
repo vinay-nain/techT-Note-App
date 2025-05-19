@@ -1,6 +1,7 @@
 const express = require("express");
 const asyncWrap = require("../utils/asyncWrap.js");
 const Note = require("../models/notes.js");
+const User = require("../models/user.js");
 const protectRoute = require("../middleware/auth.js");
 
 const router = express();
@@ -15,8 +16,11 @@ router.get(
     "/notes",
     protectRoute,
     asyncWrap(async (req, res) => {
-        const data = await Note.find();
-        res.status(200).render("./notes/show", { data });
+        const userId = req.user.id;
+        const user = await User.findById(userId)
+            .select("-password")
+            .populate("notes");
+        res.status(200).render("./notes/show", { user });
     })
 );
 
@@ -27,6 +31,11 @@ router.post(
     asyncWrap(async (req, res) => {
         let newNote = new Note(req.body.newNote);
         await newNote.save();
+        let newNoteId = newNote._id;
+        const userId = req.user.id;
+        const user = req.user;
+        user.notes.push(newNoteId);
+        const result = await User.findByIdAndUpdate(userId, user);
         res.status(200).redirect("/notes");
     })
 );

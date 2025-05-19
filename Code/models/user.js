@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const Note = require("../models/notes.js")
 const asyncWrap = require("../utils/asyncWrap.js");
 
 const userSchema = mongoose.Schema(
@@ -17,6 +18,12 @@ const userSchema = mongoose.Schema(
             type: String,
             minlength: [6, "password must be greater than 6 chars"],
         },
+        notes: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Note",
+            },
+        ],
     },
     { timestamps: true }
 );
@@ -42,6 +49,6 @@ userSchema.methods.matchPassword = async function (enteredPassword) {
     );
 
     return isPasswordCorrect;
-}
+};
 
 module.exports = mongoose.model("User", userSchema);

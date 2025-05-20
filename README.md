@@ -31,21 +31,15 @@ To explore and implement full-stack web development concepts including RESTful A
 ## 🧪 Installation & Usage
 
 1. Clone the repo:
-<br/>
 ``` git clone https://github.com/vinay-nain/techT-Note-App.git ```
-<br/>
 ``` cd .\techT-Note-App ```
 
 2. Install dependencies:
-<br/>
 ``` npm install ```
 
 3. Set up environment variables in a `.env` file:
-<br/>
 ``` MONGO_URI=your_mongodb_connection_string ```
-<br/>
 ``` JWT_SECRET=your_secret_key ```
 
 4. Start the server:
-<br/>
 ``` npm start ```
